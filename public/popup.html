@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!-- saved from url=(0074)chart.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <!-- Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
+
+    <script src="popup.js" defer></script>
+    <meta charset='utf-8'>
+    <style>
+    body{
+       width:400px !important;
+       height:300px !important;
+    }
+    </style>
+</head>
+<body>
+    <div ng-app="app">
+            <!-- /. NAV SIDE  -->
+            <div ng-controller="headCtrl">
+                <div id="flags">
+                    <b>Flags</b>
+                    <ul id="flaglist">
+                        <li ng-repeat="n in data.flags" class="{{n.flagClass}}"><a href="{{n.flagLink}}"><i class="fa {{n.flagSign}}"></i> {{n.flagText}}</a></li>
+                     </ul>
+                </div>
+            </div>
+
+            <div ng-controller="commentCtrl">
+                <!-- New Comment Form Here -->
+
+                <!-- List existing top comments -->
+                <div id='{{x.id}}_commentcontainer' border="0" id="id" ng-repeat="x in data.comments"><br>
+                    <div id='{{x.id}}_head'>
+                        <a href="#" id="{{x.id}}_expandbutton" ng-click="expand(x.id)">[-]</a> <b>{{x.username}}</b><i> {{x.score}} points {{x.timestamp}}</i>
+                    </div>
+                    <div id="{{x.id}}_body">{{x.body}}</div>
+                        <a href="#" id="{{x.id}}_replybutton" ng-click="reply(x.id);">reply</a>  <a href="#" id="{{x.id}}_flagbutton" ng-click="test();">flag</a>  <a href="#" id="{{x.id}}_viewbutton" class="viewbutton">view full</a>
+                </div><br>
+            </div>
+    </div>
+    <!-- /. WRAPPER  -->
+
+
+</body></html>

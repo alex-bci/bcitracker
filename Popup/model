@@ -1,0 +1,13 @@
+User
+
+Comment
+	
+{
+“id":1,
+“username":"Alex",
+"body":"This is a comment”,
+“score":"12",
+"timestamp":"3 hrs ago”,
+“children":10,
+"parent":"2"
+}

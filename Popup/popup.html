@@ -1,0 +1,52 @@
+<html>
+<head>
+	
+<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
+<script src="popup.js" defer></script>
+<style src="css/custom.css"></style>
+ <meta charset='utf-8'>
+
+<style>
+body{
+   min-width:400px !important;
+   max-height:300px !important;
+}
+</style>
+
+</head>
+
+<body>
+<div ng-app="popup" ng-controller="popupCtrl">
+
+	<div id='header'>
+		<a href='{{ meta.url }}'>{{ meta.title }} ({{ meta.score }}) </a>
+	</div>
+
+
+	<div id='main'>
+		<div id='newComment' class="newComment" >
+			<input type="textarea" class="newComment" ng-model="body" placeholder="Click here to add your piece ..."><br>
+			<button type="submit" ng-click="submitComment"> Submit </button><button ng-click="clearComment"> Cancel </button>
+		</div>
+
+		<a href="#" id="expandCommentButton" ng-click="loadComments()">[-]</a> <p>Top Comments:</p>		
+		<div>
+			<div id='{{x._id}}_commentcontainer' border="0" id="{{x._id}}" ng-repeat="x in comments"><br>
+				<div id='{{x._id}}_head'>
+					<a href="#" id="{{x._id}}_expandbutton" ng-click="expand(x._id)">[-]</a> <b>{{x.username}}</b><i> {{x.score}} points {{x.timestamp}}</i>
+				</div>
+				<div id="{{x._id}}_body">{{x.body}}</div>
+					<a href="#" id="{{x._id}}_replybutton" ng-click="reply(x._id);">reply</a>  <a href="#" id="{{x._id}}_flagbutton" ng-click="test();">flag</a>  <a href="#" id="{{x._id}}_viewbutton" class="viewbutton">view full</a>
+			</div><br>
+		</div>
+	</div>
+</div>
+
+
+</body>
+
+
+<style src="css/custom.css"></style>
+
+</html>
